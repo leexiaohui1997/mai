@@ -1,5 +1,6 @@
 include:
-  - ../databases/tidb/docker-compose.yml
+  - ../services/tidb/docker-compose.yml
+  - ../services/redis/docker-compose.yml
 
 networks:
   mai-network:

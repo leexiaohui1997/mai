@@ -29,8 +29,10 @@ pnpm --filter=@mai/docker clean
 packages/docker/
 ├── compose/                    # 总编排配置
 │   └── docker-compose.yml      # 组合所有服务
-├── databases/                  # 数据库相关独立编排
-│   └── tidb/                  # TiDB 集群
+├── services/                   # 所有独立编排服务
+│   ├── tidb/                  # TiDB 集群
+│   ├── redis/                 # Redis & Redis Commander
+│   └── [future-service]/      # 未来的其他服务
 ├── scripts/                    # 管理脚本
 │   ├── up.sh                  # 启动所有
 │   └── down.sh                # 停止所有
@@ -39,9 +41,10 @@ packages/docker/
 
 ## 🔗 服务列表
 
-| 服务     | 说明                     | 文档                                                   |
-| -------- | ------------------------ | ------------------------------------------------------ |
-| **TiDB** | 分布式数据库（集群模式） | [databases/tidb/README.md](./databases/tidb/README.md) |
+| 服务      | 说明                     | 文档                                                   |
+| --------- | ------------------------ | ------------------------------------------------------ |
+| **TiDB**  | 分布式数据库（集群模式） | [services/tidb/README.md](./services/tidb/README.md)   |
+| **Redis** | 键值存储数据库           | [services/redis/README.md](./services/redis/README.md) |
 
 ## ⚠️ 注意事项
 
