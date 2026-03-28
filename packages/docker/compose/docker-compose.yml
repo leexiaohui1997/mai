@@ -1,0 +1,6 @@
+include:
+  - ../databases/tidb/docker-compose.yml
+
+networks:
+  mai-network:
+    name: mai-network

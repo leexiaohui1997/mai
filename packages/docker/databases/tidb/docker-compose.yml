@@ -1,0 +1,58 @@
+services:
+  # PD (Placement Driver) - 集群管理
+  pd:
+    image: pingcap/pd:v7.5.0
+    container_name: mai-tidb-pd
+    ports:
+      - '2379:2379'
+    volumes:
+      - pd_data:/data
+    command:
+      - --name=pd
+      - --client-urls=http://0.0.0.0:2379
+      - --advertise-client-urls=http://pd:2379
+      - --data-dir=/data
+    networks:
+      - mai-network
+
+  # TiKV - 分布式存储
+  tikv:
+    image: pingcap/tikv:v7.5.0
+    container_name: mai-tidb-tikv
+    ports:
+      - '20160:20160'
+    volumes:
+      - tikv_data:/data
+    command:
+      - --addr=0.0.0.0:20160
+      - --advertise-addr=tikv:20160
+      - --status-addr=0.0.0.0:20180
+      - --pd=pd:2379
+      - --data-dir=/data
+    depends_on:
+      - pd
+    networks:
+      - mai-network
+
+  # TiDB - SQL 层
+  tidb:
+    image: pingcap/tidb:v7.5.0
+    container_name: mai-tidb-server
+    ports:
+      - '4000:4000'
+    command:
+      - --store=tikv
+      - --path=pd:2379
+      - --advertise-address=tidb
+    depends_on:
+      - tikv
+    networks:
+      - mai-network
+
+volumes:
+  pd_data:
+  tikv_data:
+
+networks:
+  mai-network:
+    name: mai-network

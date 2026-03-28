@@ -51,7 +51,8 @@ lerna-debug.log*
 .windsurf/
 .zed/
 .trae/
-.lingma/
+.lingma/*
+!.lingma/skills
 .codebuddy/
 .github/copilot/
 

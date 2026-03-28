@@ -1,0 +1,15 @@
+{
+  "name": "@mai/docker",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Mai project Docker configuration",
+  "scripts": {
+    "up": "./scripts/up.sh",
+    "down": "./scripts/down.sh"
+  },
+  "keywords": [
+    "docker",
+    "development"
+  ],
+  "license": "MIT"
+}
