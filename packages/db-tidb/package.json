@@ -14,7 +14,7 @@
   "scripts": {
     "dev": "dotenv-mono -- tsc --watch",
     "build": "dotenv-mono -- tsc",
-    "db:generate": "prisma generate",
+    "db:generate": "dotenv-mono -- prisma generate",
     "db:migrate": "dotenv-mono -- prisma migrate dev",
     "db:migrate:deploy": "dotenv-mono -- prisma migrate deploy",
     "db:studio": "dotenv-mono -- prisma studio"
