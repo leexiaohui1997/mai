@@ -4,8 +4,8 @@
   "type": "module",
   "description": "Mai project Docker configuration",
   "scripts": {
-    "up": "cross-env NODE_ENV=docker dotenv-mono -- node scripts/up.js",
-    "down": "cross-env NODE_ENV=docker dotenv-mono -- node scripts/down.js"
+    "up": "dotenv-mono -- node scripts/up.js",
+    "down": "dotenv-mono -- node scripts/down.js"
   },
   "keywords": [
     "docker",
@@ -13,7 +13,6 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "cross-env": "^10.1.0",
     "dotenv-mono": "^1.5.1"
   }
 }

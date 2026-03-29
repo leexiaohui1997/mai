@@ -1,0 +1,32 @@
+{
+  "name": "@mai/db-tidb",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "dev": "dotenv-mono -- tsc --watch",
+    "build": "dotenv-mono -- tsc",
+    "db:generate": "prisma generate",
+    "db:migrate": "dotenv-mono -- prisma migrate dev",
+    "db:migrate:deploy": "dotenv-mono -- prisma migrate deploy",
+    "db:studio": "dotenv-mono -- prisma studio"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "dotenv-mono": "^1.5.1",
+    "prisma": "^7.6.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@prisma/adapter-mariadb": "^7.6.0",
+    "@prisma/client": "^7.6.0"
+  }
+}

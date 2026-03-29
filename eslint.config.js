@@ -1,6 +1,7 @@
 import prettier from 'eslint-config-prettier'
 import pluginNode from 'eslint-plugin-n'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
+import tseslint from 'typescript-eslint'
 
 import eslint from '@eslint/js'
 
@@ -22,6 +23,9 @@ export default [
 
   // 基本配置
   eslint.configs.recommended,
+
+  // TypeScript 配置
+  ...tseslint.configs.recommended,
 
   // import 顺序规范
   {
@@ -54,7 +58,7 @@ export default [
     },
   },
 
-  // Node 配置
+  // Node 脚本文件配置
   {
     files: ['scripts/**/*.js', 'packages/*/scripts/**/*.js'],
     ...pluginNode.configs['flat/recommended-module'],
