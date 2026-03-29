@@ -1,0 +1,23 @@
+{
+  "name": "@mai/shared",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "dev": "dotenv-mono -- tsc --watch",
+    "build": "dotenv-mono -- tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "dotenv-mono": "^1.5.1",
+    "typescript": "^5.9.3"
+  }
+}
