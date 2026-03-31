@@ -25,7 +25,10 @@ export default [
   eslint.configs.recommended,
 
   // TypeScript 配置
-  ...tseslint.configs.recommended,
+  ...tseslint.configs.recommended.map((config) => ({
+    ...config,
+    files: ['**/*.{ts,tsx}'],
+  })),
 
   // import 顺序规范
   {
