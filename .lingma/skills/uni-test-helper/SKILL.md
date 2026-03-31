@@ -76,7 +76,7 @@ git diff --cached <filename>
 
 ```bash
 # 在根目录执行
-pnpm -F <subproject> run test -- <test-file-path>
+pnpm run test -- <test-file-path>
 ```
 
 - **测试失败** → 返回步骤 2.3 调整测试代码

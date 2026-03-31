@@ -47,13 +47,29 @@ describe('MaiError 类', () => {
     expect(MaiError.ErrorCode.VALIDATE_ERROR).toBe(40000)
     expect(MaiError.ErrorCode.DB_DATA_EXIST).toBe(50000)
     expect(MaiError.ErrorCode.DB_DATA_NOT_EXIST).toBe(50001)
+    expect(MaiError.ErrorCode.DB_VERSION_CONFLICT).toBe(50002)
+    expect(MaiError.ErrorCode.DB_ERROR).toBe(50999)
+  })
+
+  it('应该支持新增的 DB_VERSION_CONFLICT 错误码', () => {
+    const error = new MaiError(MaiError.ErrorCode.DB_VERSION_CONFLICT)
+    expect(error.message).toBe('数据版本冲突')
+    expect(error.code).toBe(MaiError.ErrorCode.DB_VERSION_CONFLICT)
+  })
+
+  it('应该支持新增的 DB_ERROR 错误码', () => {
+    const error = new MaiError(MaiError.ErrorCode.DB_ERROR)
+    expect(error.message).toBe('数据库错误')
+    expect(error.code).toBe(MaiError.ErrorCode.DB_ERROR)
   })
 
   it('应该正确处理错误代码和消息的映射', () => {
-    const errorCodeDefaultMessage = {
+    const errorCodeDefaultMessage: Record<number, string> = {
       [MaiError.ErrorCode.VALIDATE_ERROR]: '校验错误',
       [MaiError.ErrorCode.DB_DATA_EXIST]: '数据已存在',
       [MaiError.ErrorCode.DB_DATA_NOT_EXIST]: '数据不存在',
+      [MaiError.ErrorCode.DB_VERSION_CONFLICT]: '数据版本冲突',
+      [MaiError.ErrorCode.DB_ERROR]: '数据库错误',
     }
 
     // 验证每个错误代码都有对应的默认消息
