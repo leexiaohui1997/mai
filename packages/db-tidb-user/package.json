@@ -13,7 +13,8 @@
   },
   "scripts": {
     "dev": "dotenv-mono -- tsc --watch",
-    "build": "dotenv-mono -- tsc"
+    "build": "dotenv-mono -- tsc",
+    "test": "vitest --run"
   },
   "dependencies": {
     "@mai/db-tidb": "workspace:*",

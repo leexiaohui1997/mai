@@ -13,8 +13,8 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "prepare": "husky",
-    "test": "pnpm -r --if-present test",
-    "test:coverage": "pnpm -r --if-present test:coverage"
+    "test": "vitest --run",
+    "test:coverage": "vitest --run --coverage"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.5.0",
@@ -22,6 +22,7 @@
     "@eslint/js": "^10.0.1",
     "@types/bcryptjs": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^8.57.2",
+    "@vitest/coverage-v8": "^4.1.2",
     "conventional-changelog-conventionalcommits": "^9.3.0",
     "eslint": "^10.1.0",
     "eslint-config-prettier": "^10.1.8",
@@ -33,7 +34,8 @@
     "lint-staged": "^16.4.0",
     "prettier": "^3.8.1",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.57.2"
+    "typescript-eslint": "^8.57.2",
+    "vitest": "^4.1.2"
   },
   "engines": {
     "node": "=22.19.0",
