@@ -1,4 +1,9 @@
 enum MaiErrorCode {
+  // 成功
+  SUCCESS = 0,
+  // 服务器错误
+  SERVER_ERROR = 500,
+
   // 校验错误
   VALIDATE_ERROR = 40000,
 
@@ -10,6 +15,8 @@ enum MaiErrorCode {
 }
 
 const ErrorCodeDefaultMessage: Record<MaiErrorCode, string> = {
+  [MaiErrorCode.SUCCESS]: '成功',
+  [MaiErrorCode.SERVER_ERROR]: '服务异常',
   [MaiErrorCode.VALIDATE_ERROR]: '校验错误',
   [MaiErrorCode.DB_DATA_EXIST]: '数据已存在',
   [MaiErrorCode.DB_DATA_NOT_EXIST]: '数据不存在',
@@ -19,6 +26,7 @@ const ErrorCodeDefaultMessage: Record<MaiErrorCode, string> = {
 
 export class MaiError extends Error {
   static ErrorCode = MaiErrorCode
+  static ErrorMessage = ErrorCodeDefaultMessage
 
   constructor(
     public code: MaiErrorCode,
