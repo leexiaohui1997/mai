@@ -37,7 +37,21 @@ git status --porcelain
 
 对每个目标文件执行以下子流程：
 
+#### 2.0：识别测试框架
+
+**判断逻辑：**
+
+- 检查目标文件所在目录是否包含 `package.json` 中的 `jest` 配置
+- 或检查是否有 `vitest.config.ts`
+
+**测试体系映射：**
+
+- 根目录 → Vitest（`*.test.ts`）
+- apps/backend → Jest（`*.spec.ts`）
+
 #### 2.1 创建测试文件
+
+**Vitest项目**
 
 在源文件同级目录创建对应的测试文件：
 
@@ -46,7 +60,16 @@ source.js → source.test.js
 module.ts → module.test.ts
 ```
 
-若测试文件已存在，跳过创建步骤
+**Jest项目**
+
+在 {repo}/test 目录下，创建同样目录结构的测试文件：
+
+```
+src/source.js → test/source.spec.js
+src/utils/module.ts → test/utils/module.spec.ts
+```
+
+**若测试文件已存在，跳过创建步骤**
 
 #### 2.2 确定测试范围
 
@@ -65,17 +88,16 @@ git diff --cached <filename>
 
 #### 2.3 编写测试代码
 
-- **测试框架**: Vitest 4.1.2
 - **语言**: 使用中文编写测试描述
 - **范围**: 根据 2.2 确定的测试范围编写针对性测试
 
 #### 2.4 测试验证
 
-- 识别测试文件所属的子项目
-- 执行单文件测试：
-
 ```bash
-# 在根目录执行
+# Vitest项目 - 在根目录执行
+pnpm run test -- <test-file-path>
+
+# Jest项目 - 在子项目中执行
 pnpm run test -- <test-file-path>
 ```
 
