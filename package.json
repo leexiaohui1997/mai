@@ -12,7 +12,9 @@
     "lint:fix": "pnpm -r --if-present lint:fix && eslint . --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test": "pnpm -r --if-present test",
+    "test:coverage": "pnpm -r --if-present test:coverage"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.5.0",
